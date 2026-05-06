@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esprimi un desiderio ✨</title>
+    <style>
+        :root {
+            --lilla: #e0b0ff;
+            --lilla-scuro: #967bb6;
+            --fragola: #ff4d6d;
+            --crema: #fff5e1;
+            --foglia: #77ab59;
+            --tulipano: #ff8fa3;
+        }
+
+        body {
+            background-color: #f8f0fb;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: background-color 2s ease;
+        }
+
+        /* Effetto quando la candela si spegne */
+        body.spento {
+            background-color: #f0e6f5;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            max-width: 600px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* --- IL TIRAMISÙ --- */
+        .torta {
+            position: relative;
+            width: 250px;
+            height: 160px;
+            margin: 60px auto 40px auto;
+        }
+
+        .strato {
+            position: absolute;
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .base {
+            bottom: 0;
+            height: 60px;
+            background: #f3e5ab;
+            border-bottom: 8px solid #e6d58c;
+        }
+
+        .crema {
+            bottom: 60px;
+            height: 50px;
+            background: var(--crema);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .fragola-pezzo {
+            width: 20px;
+            height: 25px;
+            background: var(--fragola);
+            border-radius: 50% 50% 40% 40%;
+        }
+
+        .top {
+            bottom: 110px;
+            height: 40px;
+            background: var(--crema);
+            border-radius: 15px 15px 5px 5px;
+        }
+
+        .top::after {
+            content: '🍓🍓🍓🍓';
+            font-size: 20px;
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            letter-spacing: 5px;
+        }
+
+        /* --- CANDELINA --- */
+        .candelina {
+            position: absolute;
+            top: -65px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 45px;
+            font-weight: bold;
+            color: var(--lilla-scuro);
+            transition: all 1s ease;
+        }
+
+        .fiamma {
+            width: 16px;
+            height: 24px;
+            background: radial-gradient(circle, #fff000 0%, #ff8c00 100%);
+            border-radius: 50% 50% 20% 20%;
+            position: absolute;
+            top: -22px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 15px #ffcc00;
+            animation: flickering 0.2s infinite alternate;
+        }
+
+        /* Fumo dopo lo spegnimento */
+        .fumo {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 20px;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        @keyframes flickering {
+            0% { transform: translateX(-50%) scale(1); }
+            100% { transform: translateX(-52%) scale(1.1) rotate(2deg); }
+        }
+
+        @keyframes dissolveFumo {
+            0% { opacity: 0.6; transform: translate(-50%, 0); }
+            100% { opacity: 0; transform: translate(-50%, -40px) scale(2); }
+        }
+
+        /* --- TESTO --- */
+        h1 {
+            color: var(--lilla-scuro);
+            font-size: 1.5rem;
+            line-height: 1.4;
+            margin-top: 20px;
+        }
+
+        .highlight {
+            color: var(--fragola);
+            font-weight: bold;
+        }
+
+        /* --- TULIPANI --- */
+        .tulipani-bg {
+            position: fixed;
+            bottom: -10px;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .tulipano-icon {
+            font-size: 50px;
+            animation: oscillazione 4s infinite ease-in-out;
+        }
+
+        @keyframes oscillazione {
+            0%, 100% { transform: translateY(0) rotate(-5deg); }
+            50% { transform: translateY(-15px) rotate(5deg); }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="torta">
+            <div class="candelina" id="candelina">
+                23
+                <div class="fiamma" id="fiamma"></div>
+                <div class="fumo" id="fumo">💨</div>
+            </div>
+            <div class="strato top"></div>
+            <div class="strato crema">
+                <div class="fragola-pezzo"></div>
+                <div class="fragola-pezzo"></div>
+                <div class="fragola-pezzo"></div>
+            </div>
+            <div class="strato base"></div>
+        </div>
+
+        <h1>
+            Esprimi un desiderio... ✨<br>
+            <span style="font-size: 0.9em; font-style: italic;">
+                Mi raccomando, desidera di avere <span class="highlight">desideri infiniti</span>, 
+                vedrai che si realizzeranno tutti. ❤️
+            </span>
+        </h1>
+    </div>
+
+    <div class="tulipani-bg">
+        <div class="tulipano-icon">🌷</div>
+        <div class="tulipano-icon" style="animation-delay: 0.5s;">🌷</div>
+        <div class="tulipano-icon" style="animation-delay: 1s;">🌷</div>
+        <div class="tulipano-icon" style="animation-delay: 0.2s;">🌷</div>
+        <div class="tulipano-icon" style="animation-delay: 0.8s;">🌷</div>
+    </div>
+
+    <script>
+        // Funzione per simulare il soffio della candela
+        setTimeout(() => {
+            const fiamma = document.getElementById('fiamma');
+            const fumo = document.getElementById('fumo');
+            const candelina = document.getElementById('candelina');
+            const body = document.body;
+
+            // Spegne la fiamma
+            fiamma.style.display = 'none';
+
+            // Attiva l'animazione del fumo
+            fumo.style.animation = 'dissolveFumo 2s forwards';
+
+            // Cambia leggermente lo stato visivo
+            candelina.style.color = '#7a6a8f'; // Colore spento
+            body.classList.add('spento');
+
+        }, 4000); // 4000 millisecondi = 4 secondi
+    </script>
+
+</body>
+</html>
