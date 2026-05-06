@@ -9,113 +9,98 @@
 <style>
 body {
     margin: 0;
-    font-family: "Georgia", serif;
-    background: radial-gradient(circle at top, #efe3f7, #d6c0e8);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    font-family: "Playfair Display", serif;
+    background: linear-gradient(135deg, #e9ddf3, #d8c6ea);
     height: 100vh;
-    color: #3a2c3f;
-    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #2f2433;
+}
+
+/* CONTENITORE */
+.container {
+    text-align: center;
 }
 
 /* TORTA */
 .cake {
     position: relative;
-    width: 280px;
-    height: 200px;
+    width: 260px;
+    height: 180px;
+    margin: auto;
 }
 
 /* STRATI */
 .layer {
     position: absolute;
     width: 100%;
-    border-radius: 14px;
-    box-shadow: inset 0 0 15px rgba(0,0,0,0.15);
+    border-radius: 12px;
 }
 
-.layer-bottom {
-    height: 70px;
-    bottom: 0;
-    background: linear-gradient(#d8a47f, #c48a63);
-}
-
-.layer-middle {
+.bottom {
     height: 60px;
-    bottom: 70px;
+    bottom: 0;
+    background: linear-gradient(#d9a07a, #c48763);
+}
+
+.middle {
+    height: 50px;
+    bottom: 60px;
     background: #fff;
 }
 
-.layer-top {
-    height: 50px;
-    bottom: 130px;
-    background: linear-gradient(#f7a8c2, #f48fb1);
+.top {
+    height: 45px;
+    bottom: 110px;
+    background: linear-gradient(#f4a6c1, #f18fb0);
 }
 
 /* CREMA */
 .cream {
     position: absolute;
-    top: -12px;
+    top: -10px;
     width: 100%;
-    height: 30px;
+    height: 25px;
     background: #fff;
     border-radius: 50%;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
 }
 
 /* FRAGOLE */
 .strawberry {
     position: absolute;
-    width: 16px;
-    height: 16px;
-    background: radial-gradient(circle at 30% 30%, #ff4d4d, #c4002f);
+    width: 14px;
+    height: 14px;
+    background: radial-gradient(circle at 30% 30%, #ff5a5a, #b8002f);
     border-radius: 50%;
-    top: -18px;
-}
-
-.strawberry::after {
-    content: "";
-    position: absolute;
-    width: 6px;
-    height: 6px;
-    background: #3fa34d;
-    top: -4px;
-    left: 5px;
-    border-radius: 2px;
+    top: -14px;
 }
 
 /* CANDELINE */
 .candle {
     position: absolute;
-    width: 12px;
-    height: 45px;
-    background: repeating-linear-gradient(
-        45deg,
-        #ffffff,
-        #ffffff 3px,
-        #ffd6e7 3px,
-        #ffd6e7 6px
-    );
-    border-radius: 4px;
-    top: -60px;
+    width: 4px;
+    height: 40px;
+    background: #fdfdfd;
+    top: -50px;
 }
 
 /* FIAMMA */
 .flame {
     position: absolute;
-    top: -14px;
-    left: 2px;
+    top: -10px;
+    left: -2px;
     width: 8px;
-    height: 14px;
-    background: radial-gradient(circle, #ffd54f, #ff6f00);
+    height: 12px;
+    background: radial-gradient(circle, #fff3b0, #ff8c42);
     border-radius: 50%;
-    animation: flicker 0.15s infinite alternate;
+    animation: flicker 0.2s infinite alternate;
 }
 
 @keyframes flicker {
-    from { transform: scale(1); opacity: 1; }
-    to { transform: scale(1.3); opacity: 0.6; }
+    from { transform: scale(1); opacity: 0.9; }
+    to { transform: scale(1.2); opacity: 0.6; }
 }
 
 /* FUMO */
@@ -123,59 +108,59 @@ body {
     position: absolute;
     width: 6px;
     height: 6px;
-    background: rgba(200,200,200,0.6);
+    background: rgba(150,150,150,0.3);
     border-radius: 50%;
-    animation: smokeUp 2s forwards;
+    animation: smoke 2s forwards;
 }
 
-@keyframes smokeUp {
-    0% { transform: translateY(0); opacity: 0.8; }
-    100% { transform: translateY(-40px); opacity: 0; }
+@keyframes smoke {
+    0% { transform: translateY(0); opacity: 0.5; }
+    100% { transform: translateY(-50px); opacity: 0; }
 }
 
 /* NUMERO */
 .number {
-    font-size: 48px;
+    font-size: 42px;
     margin-top: 10px;
-    letter-spacing: 5px;
+    letter-spacing: 6px;
 }
 
 /* TESTO */
 .message {
-    max-width: 600px;
-    font-size: 18px;
-    line-height: 1.6;
     margin-top: 20px;
+    max-width: 520px;
+    font-size: 17px;
+    line-height: 1.6;
+    font-weight: 300;
 }
 
-/* TULIPANI */
+/* TULIPANI MINIMAL */
 .tulips {
     position: absolute;
-    bottom: 0;
+    bottom: 20px;
     width: 100%;
     display: flex;
-    justify-content: space-around;
-    padding: 0 20px;
+    justify-content: space-between;
+    padding: 0 60px;
+    opacity: 0.6;
 }
 
 .tulip {
+    width: 2px;
+    height: 60px;
+    background: #4a7c59;
     position: relative;
-    width: 20px;
-    height: 70px;
 }
 
-.flower {
-    width: 20px;
-    height: 22px;
-    background: #d46a92;
+.tulip::before {
+    content: "";
+    position: absolute;
+    top: -12px;
+    left: -4px;
+    width: 10px;
+    height: 12px;
+    background: #c97aa3;
     border-radius: 50% 50% 0 0;
-}
-
-.stem {
-    width: 4px;
-    height: 45px;
-    background: #2e7d32;
-    margin: auto;
 }
 </style>
 
@@ -183,27 +168,24 @@ body {
 
 <body>
 
-<div class="cake" id="cake">
-    <div class="layer layer-bottom"></div>
-    <div class="layer layer-middle"></div>
-    <div class="layer layer-top"></div>
+<div class="container">
+
+<div class="cake">
+    <div class="layer bottom"></div>
+    <div class="layer middle"></div>
+    <div class="layer top"></div>
     <div class="cream"></div>
 
 ```
-<!-- Fragole -->
-<div class="strawberry" style="left:20px;"></div>
-<div class="strawberry" style="left:70px;"></div>
-<div class="strawberry" style="left:120px;"></div>
-<div class="strawberry" style="left:170px;"></div>
-<div class="strawberry" style="left:220px;"></div>
+<!-- fragole -->
+<div class="strawberry" style="left:30px;"></div>
+<div class="strawberry" style="left:80px;"></div>
+<div class="strawberry" style="left:130px;"></div>
+<div class="strawberry" style="left:180px;"></div>
 
-<!-- Candeline -->
-<div class="candle" style="left:110px;">
-    <div class="flame"></div>
-</div>
-<div class="candle" style="left:140px;">
-    <div class="flame"></div>
-</div>
+<!-- candeline -->
+<div class="candle" style="left:110px;"><div class="flame"></div></div>
+<div class="candle" style="left:140px;"><div class="flame"></div></div>
 ```
 
 </div>
@@ -211,49 +193,39 @@ body {
 <div class="number">23</div>
 
 <div class="message">
-    buon compleanno, mi raccomando soffia la candelina ed esprimi un desiderio,<br>
-    e ricorda di desiderare di avere desideri infiniti, si avvereranno tutti!
+buon compleanno, mi raccomando soffia la candelina ed esprimi un desiderio,<br>
+e ricorda di desiderare di avere desideri infiniti, si avvereranno tutti!
 </div>
 
-<!-- Tulipani -->
+</div>
 
 <div class="tulips">
-    <div class="tulip"><div class="flower"></div><div class="stem"></div></div>
-    <div class="tulip"><div class="flower"></div><div class="stem"></div></div>
-    <div class="tulip"><div class="flower"></div><div class="stem"></div></div>
-    <div class="tulip"><div class="flower"></div><div class="stem"></div></div>
+    <div class="tulip"></div>
+    <div class="tulip"></div>
+    <div class="tulip"></div>
+    <div class="tulip"></div>
 </div>
 
 <script>
-function spegniCandeline() {
+function spegni() {
     document.querySelectorAll('.flame').forEach(f => {
-        let parent = f.parentElement;
+        let p = f.parentElement;
+        f.style.opacity = "0";
 
-        // rimuove fiamma
-        f.remove();
+        let smoke = document.createElement("div");
+        smoke.className = "smoke";
+        smoke.style.left = "-1px";
+        smoke.style.top = "-10px";
+        p.appendChild(smoke);
 
-        // crea fumo
-        for(let i=0;i<3;i++){
-            let smoke = document.createElement("div");
-            smoke.className = "smoke";
-            smoke.style.left = "3px";
-            smoke.style.top = "-10px";
-            parent.appendChild(smoke);
-
-            setTimeout(()=>smoke.remove(),2000);
-        }
+        setTimeout(()=>smoke.remove(),2000);
     });
 }
 
-// automatico dopo 4 secondi
-setTimeout(spegniCandeline, 4000);
-
-// click per soffiare
-document.body.addEventListener("click", spegniCandeline);
+setTimeout(spegni, 4000);
+document.body.addEventListener("click", spegni);
 </script>
 
 </body>
 </html>
-```
 
-            justify-content: center
