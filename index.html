@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Un Desiderio per Te</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <title>Un Desiderio per Te ✨</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,500&family=Inter:wght@300;400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --lilla-soft: #f3e8ff;
-            --lilla-accent: #967bb6;
-            --fragola-dark: #b33951;
-            --cream: #fffaf0;
-            --biscotto: #e3c08d;
+            --lilla-soft: #f4eeff;
+            --lilla-dark: #8e7cc3;
+            --fragola: #ff5e78;
+            --fragola-soft: #ffccd5;
+            --crema: #fffdf5;
+            --biscotto: #e8c39e;
         }
 
         body {
@@ -22,184 +23,121 @@
             align-items: center;
             min-height: 100vh;
             font-family: 'Inter', sans-serif;
-            transition: background-color 3s ease;
-            overflow: hidden;
+            transition: background-color 2.5s ease;
         }
 
-        body.dark-mode {
-            background-color: #d8c3e8;
-        }
+        body.spento { background-color: #e2d5f0; }
 
-        .card {
+        .container {
             text-align: center;
             position: relative;
-            z-index: 10;
-            padding: 40px;
+            z-index: 5;
         }
 
-        /* --- TIRAMISÙ ELEGANTE --- */
+        /* --- TIRAMISÙ ALLE FRAGOLE --- */
+        .dolce-container {
+            position: relative;
+            width: 300px;
+            margin: 0 auto 40px;
+        }
+
         .tiramisu {
             width: 280px;
-            height: 180px;
-            margin: 0 auto 50px;
+            height: 160px;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 15px;
             position: relative;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 12px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
             overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.5);
-        }
-
-        .layer { position: absolute; width: 100%; }
-
-        /* Strati del dolce */
-        .layer-base { bottom: 0; height: 35%; background: var(--biscotto); border-top: 2px solid #d4a373; }
-        .layer-cream-1 { bottom: 35%; height: 25%; background: var(--cream); border-top: 1px solid #eee0c5; }
-        .layer-savoiardi { bottom: 60%; height: 20%; background: #ebcf9e; }
-        .layer-cream-top { bottom: 80%; height: 20%; background: var(--cream); }
-
-        /* Polvere di fragole in cima */
-        .dusting {
-            position: absolute;
-            top: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle, rgba(255,77,109,0.2) 0%, transparent 70%);
-            box-shadow: inset 0 10px 20px rgba(179, 57, 81, 0.15);
-        }
-
-        /* --- CANDELA MINIMAL --- */
-        .candle-container {
-            position: absolute;
-            top: -55px;
-            left: 50%;
-            transform: translateX(-50%);
-            text-align: center;
-        }
-
-        .number {
-            font-family: 'Playfair Display', serif;
-            font-size: 48px;
-            color: var(--lilla-accent);
-            letter-spacing: -2px;
-            line-height: 1;
-            position: relative;
-        }
-
-        .flame {
-            width: 12px;
-            height: 22px;
-            background: #ffd36e;
-            border-radius: 50% 50% 20% 20%;
-            position: absolute;
-            top: -25px;
-            left: 50%;
-            transform: translateX(-50%);
-            filter: blur(1px);
-            box-shadow: 0 0 15px #ffaa00;
-            animation: glow 1.5s infinite alternate;
-            transition: opacity 1s ease, transform 1s ease;
-        }
-
-        @keyframes glow {
-            from { opacity: 0.8; transform: translateX(-50%) scale(1); }
-            to { opacity: 1; transform: translateX(-50%) scale(1.1); }
-        }
-
-        /* --- TESTO --- */
-        .message {
-            max-width: 450px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            border: 1px solid rgba(255,255,255,0.6);
             margin: 0 auto;
         }
 
+        /* Strati */
+        .strato { position: absolute; width: 100%; left: 0; }
+        .base { bottom: 0; height: 30%; background: var(--biscotto); }
+        .crema-middle { bottom: 30%; height: 40%; background: var(--crema); display: flex; justify-content: space-around; align-items: center; }
+        .savoiardi-2 { bottom: 70%; height: 15%; background: #f0dcc0; }
+        .crema-top { bottom: 85%; height: 15%; background: var(--crema); }
+
+        /* Fragole dentro la crema */
+        .fragola-slice {
+            width: 25px;
+            height: 30px;
+            background: var(--fragola);
+            border-radius: 50% 50% 30% 30%;
+            opacity: 0.8;
+            position: relative;
+        }
+
+        /* Fragole sopra */
+        .fragole-top {
+            position: absolute;
+            top: -15px;
+            width: 100%;
+            text-align: center;
+            font-size: 24px;
+            z-index: 2;
+        }
+
+        /* --- CANDELINA --- */
+        .candelina-box {
+            position: absolute;
+            top: -70px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .stelo {
+            width: 6px;
+            height: 40px;
+            background: linear-gradient(to bottom, var(--lilla-dark), #c5b4e3);
+            border-radius: 3px;
+            position: relative;
+        }
+
+        .numero-23 {
+            position: absolute;
+            right: -35px;
+            top: -5px;
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: bold;
+            color: var(--lilla-dark);
+        }
+
+        .fiamma {
+            width: 12px;
+            height: 20px;
+            background: #ffdb58;
+            border-radius: 50% 50% 20% 20%;
+            position: absolute;
+            top: -22px;
+            left: -3px;
+            box-shadow: 0 0 15px #ffcc00;
+            animation: flickering 0.15s infinite alternate;
+            transition: opacity 0.8s ease;
+        }
+
+        @keyframes flickering {
+            0% { transform: scale(1) rotate(-1deg); opacity: 0.9; }
+            100% { transform: scale(1.1) rotate(1deg); opacity: 1; }
+        }
+
+        /* --- TESTO --- */
         h1 {
             font-family: 'Playfair Display', serif;
+            color: #4a3f5a;
+            font-size: 26px;
+            margin-bottom: 10px;
             font-style: italic;
-            color: #5a4a6e;
-            font-size: 24px;
-            margin-bottom: 15px;
-            font-weight: 400;
         }
 
         p {
-            color: #7a6a8f;
-            line-height: 1.6;
-            font-size: 16px;
-            letter-spacing: 0.5px;
-        }
-
-        .infinity {
-            color: var(--fragola-dark);
-            font-weight: 400;
-            border-bottom: 1px solid rgba(179, 57, 81, 0.3);
-        }
-
-        /* --- TULIPANI STILIZZATI --- */
-        .decor {
-            position: fixed;
-            bottom: -20px;
-            width: 110%;
-            display: flex;
-            justify-content: space-around;
-            opacity: 0.4;
-            pointer-events: none;
-        }
-
-        .tulip-svg {
-            width: 60px;
-            height: 100px;
-            fill: var(--lilla-accent);
-            animation: sway 6s infinite ease-in-out;
-        }
-
-        @keyframes sway {
-            0%, 100% { transform: rotate(-3deg) translateY(0); }
-            50% { transform: rotate(3deg) translateY(-10px); }
-        }
-
-    </style>
-</head>
-<body>
-
-    <div class="card">
-        <div class="tiramisu">
-            <div class="layer layer-base"></div>
-            <div class="layer layer-cream-1"></div>
-            <div class="layer layer-savoiardi"></div>
-            <div class="layer layer-cream-top"></div>
-            <div class="dusting"></div>
-            
-            <div class="candle-container">
-                <div class="flame" id="flame"></div>
-                <div class="number">23</div>
-            </div>
-        </div>
-
-        <div class="message">
-            <h1>Esprimi un desiderio...</h1>
-            <p>
-                Mi raccomando, desidera di avere <span class="infinity">desideri infiniti</span>,<br>
-                vedrai che si realizzeranno tutti.
-            </p>
-        </div>
-    </div>
-
-    <div class="decor">
-        <svg class="tulip-svg" viewBox="0 0 50 100"><path d="M25 40C15 40 10 25 25 10C40 25 35 40 25 40Z"/><rect x="24" y="40" width="2" height="60"/></svg>
-        <svg class="tulip-svg" style="animation-delay: -1s;" viewBox="0 0 50 100"><path d="M25 40C15 40 10 25 25 10C40 25 35 40 25 40Z"/><rect x="24" y="40" width="2" height="60"/></svg>
-        <svg class="tulip-svg" style="animation-delay: -2s;" viewBox="0 0 50 100"><path d="M25 40C15 40 10 25 25 10C40 25 35 40 25 40Z"/><rect x="24" y="40" width="2" height="60"/></svg>
-        <svg class="tulip-svg" style="animation-delay: -3s;" viewBox="0 0 50 100"><path d="M25 40C15 40 10 25 25 10C40 25 35 40 25 40Z"/><rect x="24" y="40" width="2" height="60"/></svg>
-        <svg class="tulip-svg" style="animation-delay: -4s;" viewBox="0 0 50 100"><path d="M25 40C15 40 10 25 25 10C40 25 35 40 25 40Z"/><rect x="24" y="40" width="2" height="60"/></svg>
-    </div>
-
-    <script>
-        // Effetto soffio dopo 5 secondi
-        setTimeout(() => {
-            const flame = document.getElementById('flame');
-            if (flame) {
-                flame.style.opacity = '0';
-                flame.style.transform = 'translateX(-50%) scale(0.5) translateY(-10px)';
-                document.body.classList.add('dark-mode');
-            }
-        }, 5000);
-    </script>
-</body>
-</html>
+            color: #6b5b7b;
+            font-size: 17px;
+            line-height: 1.5;
+            max-width: 400px
